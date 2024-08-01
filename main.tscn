@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://bfoaxio4s8hip"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_ow8hk"]
+[ext_resource type="PackedScene" uid="uid://djaq0523kpliq" path="res://scene/arena/arena.tscn" id="2_0kxuu"]
+[ext_resource type="PackedScene" uid="uid://b3gy3an13n33k" path="res://scene/paddle/paddle.tscn" id="4_6wc1a"]
+[ext_resource type="PackedScene" uid="uid://0bru3wl55dr0" path="res://scene/ball/ball.tscn" id="4_wv2rl"]
+[ext_resource type="PackedScene" uid="uid://nt3n6573ihtj" path="res://scene/shield/shield.tscn" id="5_jb5e2"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_ow8hk")
+
+[node name="Arena" parent="." instance=ExtResource("2_0kxuu")]
+
+[node name="Ball" parent="." instance=ExtResource("4_wv2rl")]
+position = Vector2(400, 540)
+
+[node name="Paddle" parent="." instance=ExtResource("4_6wc1a")]
+position = Vector2(400, 550)
+collision_mask = 4
+
+[node name="Shield" parent="." instance=ExtResource("5_jb5e2")]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="UI"]
+offset_left = 660.0
+offset_top = 453.0
+offset_right = 735.0
+offset_bottom = 484.0
+text = "向上"
+
+[connection signal="pressed" from="UI/Button" to="." method="_on_button_pressed"]

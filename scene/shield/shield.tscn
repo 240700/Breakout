@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://nt3n6573ihtj"]
+
+[ext_resource type="Script" path="res://scene/shield/shield.gd" id="1_tmcv1"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6acgn"]
+
+[node name="Shield" type="StaticBody2D"]
+position = Vector2(400, 580)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_tmcv1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("WorldBoundaryShape2D_6acgn")
